@@ -1,0 +1,77 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claude-skills",
+  "description": "Personal Claude Code skills and commands: language personas, PR workflow, architecture, productivity, and dev-utility skills.",
+  "owner": { "name": "austek" },
+  "plugins": [
+    {
+      "name": "language-personas",
+      "description": "Java/Python/Rust/Scala coding-standards, testing, and tooling personas, plus a JVM systems mentor and a polyglot tutor.",
+      "version": "1.0.0",
+      "author": { "name": "austek" },
+      "homepage": "https://github.com/austek/claude-skills",
+      "repository": "https://github.com/austek/claude-skills",
+      "license": "MIT",
+      "category": "productivity",
+      "source": "./language-personas",
+      "skills": [
+        "./java-coding-standards", "./java-testing", "./java-tooling",
+        "./python-coding-standards", "./python-testing", "./python-tooling",
+        "./rust-coding-standards", "./rust-testing", "./rust-tooling",
+        "./scala-coding-standards", "./scala-testing", "./scala-tooling",
+        "./jvm-systems-mentor", "./polyglot-tutor"
+      ]
+    },
+    {
+      "name": "pr-workflow-oss",
+      "description": "Open, review, and land a pull request on a personal or open-source repo.",
+      "version": "1.0.0",
+      "author": { "name": "austek" },
+      "homepage": "https://github.com/austek/claude-skills",
+      "repository": "https://github.com/austek/claude-skills",
+      "license": "MIT",
+      "category": "productivity",
+      "source": "./pr-workflow-oss",
+      "skills": ["./create-pr-oss", "./review-pr-oss", "./land-pr-oss"]
+    },
+    {
+      "name": "architecture",
+      "description": "Deep-module design, domain modeling, and codebase architecture improvement.",
+      "version": "1.0.0",
+      "author": { "name": "austek" },
+      "homepage": "https://github.com/austek/claude-skills",
+      "repository": "https://github.com/austek/claude-skills",
+      "license": "MIT",
+      "category": "productivity",
+      "source": "./architecture",
+      "skills": ["./codebase-design", "./domain-modeling", "./improve-codebase-architecture"]
+    },
+    {
+      "name": "productivity",
+      "description": "Plan-sharpening interviews, agent handoffs, and decision questionnaires.",
+      "version": "1.0.0",
+      "author": { "name": "austek" },
+      "homepage": "https://github.com/austek/claude-skills",
+      "repository": "https://github.com/austek/claude-skills",
+      "license": "MIT",
+      "category": "productivity",
+      "source": "./productivity",
+      "skills": ["./grill-me", "./grilling", "./grill-with-docs", "./handoff", "./wait-what", "./to-questionnaire"]
+    },
+    {
+      "name": "dev-utilities",
+      "description": "IDE MCP tool selection, comment cleanup, code-claim verification, business analysis.",
+      "version": "1.0.0",
+      "author": { "name": "austek" },
+      "homepage": "https://github.com/austek/claude-skills",
+      "repository": "https://github.com/austek/claude-skills",
+      "license": "MIT",
+      "category": "productivity",
+      "source": "./dev-utilities",
+      "skills": [
+        "./claude-settings-split", "./idea-mcp-tools", "./nuke-comments",
+        "./prune-comments", "./verifying-code-claims", "./business-analysis"
+      ]
+    }
+  ]
+}

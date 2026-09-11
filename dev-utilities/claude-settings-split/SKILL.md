@@ -1,12 +1,12 @@
 ---
 name: claude-settings-split
 description: >-
-  Move uncommitted changes from shared claude/.claude/settings.json to profiles/claude_personal.json, claude_work.json, or claude_homelab.json. Use for profile-specific hooks, plugins, permissions, or absolute paths.
+  Move uncommitted changes from shared claude/.claude/settings.json to claude-profiles/claude_personal.json, claude_work.json, or claude_homelab.json. Use for profile-specific hooks, plugins, permissions, or absolute paths.
 ---
 
 # Claude Settings Split
 
-Base `claude/.claude/settings.json` must remain profile-neutral. Machine-specific configs belong in `profiles/claude_personal.json`, `profiles/claude_work.json`, or `profiles/claude_homelab.json`.
+Base `claude/.claude/settings.json` must remain profile-neutral. Machine-specific configs belong in `claude-profiles/claude_personal.json`, `claude-profiles/claude_work.json`, or `claude-profiles/claude_homelab.json`.
 Mergeable keys (`hooks`, `enabledPlugins`, `permissions`) combine automatically across base and profile settings.
 
 This skill assumes the preset-based file-naming convention (`claude_personal.json`, `claude_work.json`, `claude_homelab.json`) and will not apply as-is to a repository that uses a different naming scheme for profile settings.
@@ -15,7 +15,7 @@ This skill assumes the preset-based file-naming convention (`claude_personal.jso
 
 1. **Target**: Ask user if target is `personal`, `work`, or `homelab` (don't guess).
 2. **Diff**: Check `git diff` and `git diff --staged` for `claude/.claude/settings.json`. Identify what moves vs. what stays.
-3. **Merge**: Edit `profiles/claude_<target>.json` (treat `{}` as valid base). Copy fragments verbatim:
+3. **Merge**: Edit `claude-profiles/claude_<target>.json` (treat `{}` as valid base). Copy fragments verbatim:
    - **`hooks.<Event>`**: Append new blocks to the array. Do not overwrite existing entries.
    - **`enabledPlugins`**: Add new keys. Leave existing alone.
    - **`permissions` / scalars**: Set key. If conflict exists, ask user.
@@ -26,7 +26,7 @@ This skill assumes the preset-based file-naming convention (`claude_personal.jso
 5. **Validate**:
    ```bash
    python3 -m json.tool claude/.claude/settings.json >/dev/null
-   python3 -m json.tool profiles/claude_<target>.json >/dev/null
+   python3 -m json.tool claude-profiles/claude_<target>.json >/dev/null
    ```
 6. **Show Results**: Run `git diff` on both files.
 

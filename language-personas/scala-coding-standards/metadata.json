@@ -1,0 +1,87 @@
+{
+  "version": "1.0.0",
+  "author": "Original — dotfiles",
+  "abstract": "A comprehensive collection of Scala coding standards and best practices. Designed for AI agents and LLMs to generate high-quality, idiomatic, and maintainable Scala code.",
+  "categories": 13,
+  "rules": 62,
+  "sections": [
+    {
+      "prefix": "null-option",
+      "name": "Null & Option Handling",
+      "impact": "CRITICAL",
+      "count": 5
+    },
+    {
+      "prefix": "effect-systems",
+      "name": "Effect Systems",
+      "impact": "HIGH",
+      "count": 6
+    },
+    {
+      "prefix": "anti-patterns",
+      "name": "Anti-Patterns",
+      "impact": "HIGH",
+      "count": 5
+    },
+    {
+      "prefix": "concurrency",
+      "name": "Concurrency",
+      "impact": "HIGH",
+      "count": 5
+    },
+    {
+      "prefix": "error-handling",
+      "name": "Error Handling",
+      "impact": "HIGH",
+      "count": 5
+    },
+    {
+      "prefix": "immutability",
+      "name": "Immutability",
+      "impact": "HIGH",
+      "count": 5
+    },
+    {
+      "prefix": "implicits-givens",
+      "name": "Implicits & Givens",
+      "impact": "MEDIUM",
+      "count": 6
+    },
+    {
+      "prefix": "api-design",
+      "name": "API Design",
+      "impact": "MEDIUM",
+      "count": 5
+    },
+    {
+      "prefix": "collections",
+      "name": "Collections",
+      "impact": "MEDIUM",
+      "count": 5
+    },
+    {
+      "prefix": "pattern-matching",
+      "name": "Pattern Matching",
+      "impact": "MEDIUM",
+      "count": 5
+    },
+    {
+      "prefix": "for-comprehensions",
+      "name": "For-Comprehensions",
+      "impact": "MEDIUM",
+      "count": 4
+    },
+    {
+      "prefix": "naming",
+      "name": "Naming",
+      "impact": "LOW",
+      "count": 3
+    },
+    {
+      "prefix": "scaladoc",
+      "name": "Scaladoc",
+      "impact": "LOW",
+      "count": 3
+    }
+  ]
+}

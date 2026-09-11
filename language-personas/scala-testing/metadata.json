@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "author": "Original — dotfiles",
+  "abstract": "A collection of test-writing best practices for MUnit, ScalaTest, and ScalaCheck. Designed for AI agents and LLMs to write readable, maintainable, and trustworthy tests.",
+  "categories": 5,
+  "rules": 22,
+  "sections": [
+    {
+      "prefix": "async-testing",
+      "name": "Async Testing",
+      "impact": "HIGH",
+      "count": 4
+    },
+    {
+      "prefix": "mocking-discipline",
+      "name": "Mocking Discipline",
+      "impact": "HIGH",
+      "count": 4
+    },
+    {
+      "prefix": "scalacheck",
+      "name": "ScalaCheck",
+      "impact": "MEDIUM",
+      "count": 5
+    },
+    {
+      "prefix": "scalatest-munit-structure",
+      "name": "ScalaTest & MUnit Structure",
+      "impact": "MEDIUM",
+      "count": 5
+    },
+    {
+      "prefix": "fixtures",
+      "name": "Fixtures",
+      "impact": "MEDIUM",
+      "count": 4
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "version": "1.0.0",
+  "author": "Original \u2014 dotfiles",
+  "abstract": "A comprehensive collection of Java coding standards and best practices. Designed for AI agents and LLMs to generate high-quality, idiomatic, and maintainable Java code.",
+  "categories": 17,
+  "rules": 80,
+  "sections": [
+    {
+      "prefix": "anti-patterns",
+      "name": "Anti-Patterns",
+      "impact": "CRITICAL",
+      "count": 5
+    },
+    {
+      "prefix": "resource-management",
+      "name": "Resource Management",
+      "impact": "CRITICAL",
+      "count": 4
+    },
+    {
+      "prefix": "concurrency",
+      "name": "Concurrency",
+      "impact": "HIGH",
+      "count": 6
+    },
+    {
+      "prefix": "api-design",
+      "name": "API Design",
+      "impact": "HIGH",
+      "count": 5
+    },
+    {
+      "prefix": "error-handling",
+      "name": "Error Handling",
+      "impact": "HIGH",
+      "count": 5
+    },
+    {
+      "prefix": "immutability",
+      "name": "Immutability",
+      "impact": "HIGH",
+      "count": 5
+    },
+    {
+      "prefix": "oo-design",
+      "name": "Object-Oriented Design",
+      "impact": "HIGH",
+      "count": 5
+    },
+    {
+      "prefix": "sealed-pattern",
+      "name": "Sealed Types & Pattern Matching",
+      "impact": "HIGH",
+      "count": 5
+    },
+    {
+      "prefix": "javadoc",
+      "name": "Javadoc",
+      "impact": "HIGH",
+      "count": 4
+    },
+    {
+      "prefix": "records",
+      "name": "Records",
+      "impact": "HIGH",
+      "count": 4
+    },
+    {
+      "prefix": "reflection-serialization",
+      "name": "Reflection & Serialization",
+      "impact": "HIGH",
+      "count": 4
+    },
+    {
+      "prefix": "modules",
+      "name": "Modules",
+      "impact": "HIGH",
+      "count": 3
+    },
+    {
+      "prefix": "collections-streams",
+      "name": "Collections & Streams",
+      "impact": "MEDIUM",
+      "count": 6
+    },
+    {
+      "prefix": "generics",
+      "name": "Generics",
+      "impact": "MEDIUM",
+      "count": 5
+    },
+    {
+      "prefix": "nullability",
+      "name": "Nullability",
+      "impact": "MEDIUM",
+      "count": 5
+    },
+    {
+      "prefix": "performance",
+      "name": "Performance",
+      "impact": "MEDIUM",
+      "count": 5
+    },
+    {
+      "prefix": "naming",
+      "name": "Naming",
+      "impact": "MEDIUM",
+      "count": 4
+    }
+  ]
+}

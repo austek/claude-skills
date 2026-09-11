@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "author": "Adapted from leonardomso/rust-skills (MIT)",
+  "abstract": "Rust development tooling configuration and best practices adapted from the leonardomso/rust-skills catalog. Covers clippy and rustc lint configuration, and Cargo workspace/module project structure.",
+  "categories": 2,
+  "rules": 27,
+  "sections": [
+    {
+      "prefix": "proj",
+      "name": "Project Structure",
+      "impact": "MEDIUM",
+      "count": 14
+    },
+    {
+      "prefix": "lint",
+      "name": "Linting (Clippy & rustc)",
+      "impact": "MEDIUM",
+      "count": 13
+    }
+  ]
+}

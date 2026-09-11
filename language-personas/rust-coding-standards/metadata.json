@@ -1,0 +1,147 @@
+{
+  "version": "1.0.0",
+  "author": "Adapted from leonardomso/rust-skills (MIT)",
+  "abstract": "Rust coding standards and best practices adapted from the leonardomso/rust-skills catalog. Designed for AI agents and LLMs to generate idiomatic, safe, and performant Rust code.",
+  "categories": 23,
+  "rules": 223,
+  "sections": [
+    {
+      "prefix": "async",
+      "name": "Async Programming",
+      "impact": "HIGH",
+      "count": 18
+    },
+    {
+      "prefix": "type",
+      "name": "Type Safety",
+      "impact": "HIGH",
+      "count": 13
+    },
+    {
+      "prefix": "serde",
+      "name": "Serialization (Serde)",
+      "impact": "HIGH",
+      "count": 8
+    },
+    {
+      "prefix": "obs",
+      "name": "Observability",
+      "impact": "HIGH",
+      "count": 7
+    },
+    {
+      "prefix": "unsafe",
+      "name": "Unsafe Rust",
+      "impact": "HIGH",
+      "count": 7
+    },
+    {
+      "prefix": "num",
+      "name": "Numeric Types",
+      "impact": "HIGH",
+      "count": 5
+    },
+    {
+      "prefix": "conc",
+      "name": "Concurrency",
+      "impact": "HIGH",
+      "count": 4
+    },
+    {
+      "prefix": "api",
+      "name": "API Design",
+      "impact": "MEDIUM",
+      "count": 17
+    },
+    {
+      "prefix": "mem",
+      "name": "Memory Management",
+      "impact": "MEDIUM",
+      "count": 17
+    },
+    {
+      "prefix": "name",
+      "name": "Naming",
+      "impact": "MEDIUM",
+      "count": 16
+    },
+    {
+      "prefix": "anti",
+      "name": "Anti-Patterns",
+      "impact": "MEDIUM",
+      "count": 15
+    },
+    {
+      "prefix": "perf",
+      "name": "Performance",
+      "impact": "MEDIUM",
+      "count": 13
+    },
+    {
+      "prefix": "err",
+      "name": "Error Handling",
+      "impact": "MEDIUM",
+      "count": 12
+    },
+    {
+      "prefix": "own",
+      "name": "Ownership & Borrowing",
+      "impact": "MEDIUM",
+      "count": 12
+    },
+    {
+      "prefix": "macro",
+      "name": "Macros",
+      "impact": "MEDIUM",
+      "count": 8
+    },
+    {
+      "prefix": "trait",
+      "name": "Traits",
+      "impact": "MEDIUM",
+      "count": 6
+    },
+    {
+      "prefix": "closure",
+      "name": "Closures",
+      "impact": "MEDIUM",
+      "count": 5
+    },
+    {
+      "prefix": "pat",
+      "name": "Pattern Matching",
+      "impact": "MEDIUM",
+      "count": 5
+    },
+    {
+      "prefix": "coll",
+      "name": "Collections",
+      "impact": "MEDIUM",
+      "count": 4
+    },
+    {
+      "prefix": "const",
+      "name": "Const & Compile-Time",
+      "impact": "MEDIUM",
+      "count": 4
+    },
+    {
+      "prefix": "conv",
+      "name": "Conversions",
+      "impact": "MEDIUM",
+      "count": 3
+    },
+    {
+      "prefix": "doc",
+      "name": "Documentation",
+      "impact": "LOW",
+      "count": 12
+    },
+    {
+      "prefix": "opt",
+      "name": "Compiler Optimization",
+      "impact": "LOW",
+      "count": 12
+    }
+  ]
+}

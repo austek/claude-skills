@@ -1,0 +1,51 @@
+{
+  "version": "1.0.0",
+  "author": "Original \u2014 dotfiles",
+  "abstract": "A collection of test-writing best practices for JUnit 5, AssertJ, Mockito, and Testcontainers. Designed for AI agents and LLMs to write readable, maintainable, and trustworthy tests.",
+  "categories": 7,
+  "rules": 29,
+  "sections": [
+    {
+      "prefix": "mockito",
+      "name": "Mockito",
+      "impact": "HIGH",
+      "count": 6
+    },
+    {
+      "prefix": "junit5-structure",
+      "name": "JUnit 5 Structure",
+      "impact": "HIGH",
+      "count": 5
+    },
+    {
+      "prefix": "assertj",
+      "name": "AssertJ Assertions",
+      "impact": "HIGH",
+      "count": 4
+    },
+    {
+      "prefix": "fixtures",
+      "name": "Fixtures",
+      "impact": "HIGH",
+      "count": 4
+    },
+    {
+      "prefix": "testcontainers",
+      "name": "Testcontainers",
+      "impact": "HIGH",
+      "count": 3
+    },
+    {
+      "prefix": "parametrized",
+      "name": "Parameterized Tests",
+      "impact": "MEDIUM",
+      "count": 4
+    },
+    {
+      "prefix": "test-doubles",
+      "name": "Test Doubles",
+      "impact": "MEDIUM",
+      "count": 3
+    }
+  ]
+}

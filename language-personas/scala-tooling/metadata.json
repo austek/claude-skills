@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "author": "Original — dotfiles",
+  "abstract": "A comprehensive guide to Scala development tools. Configuration best practices for build systems, compiler flags, Scalafix, Scalafmt, Scalastyle, and Wartremover.",
+  "categories": 6,
+  "rules": 20,
+  "sections": [
+    {
+      "prefix": "build",
+      "name": "Build",
+      "impact": "HIGH",
+      "count": 4
+    },
+    {
+      "prefix": "compiler-flags",
+      "name": "Compiler Flags",
+      "impact": "HIGH",
+      "count": 4
+    },
+    {
+      "prefix": "scalafix",
+      "name": "Scalafix",
+      "impact": "HIGH",
+      "count": 4
+    },
+    {
+      "prefix": "scalafmt",
+      "name": "Scalafmt",
+      "impact": "HIGH",
+      "count": 4
+    },
+    {
+      "prefix": "wartremover",
+      "name": "Wartremover",
+      "impact": "HIGH",
+      "count": 3
+    },
+    {
+      "prefix": "scalastyle",
+      "name": "Scalastyle",
+      "impact": "LOW",
+      "count": 1
+    }
+  ]
+}

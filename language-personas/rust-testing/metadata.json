@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "author": "Adapted from leonardomso/rust-skills (MIT)",
+  "abstract": "Rust test-writing best practices adapted from the leonardomso/rust-skills catalog. Covers test structure, fixtures, mocking, property-based testing, and benchmarks for readable, maintainable, and trustworthy tests.",
+  "categories": 1,
+  "rules": 15,
+  "sections": [
+    {
+      "prefix": "test",
+      "name": "Testing",
+      "impact": "MEDIUM",
+      "count": 15
+    }
+  ]
+}

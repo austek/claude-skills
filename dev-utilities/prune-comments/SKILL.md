@@ -135,8 +135,8 @@ whether to simplify now or accept the comment as a stopgap.
   no signature narration) and are out of scope for this skill. Don't prune
   a docstring just because it's long; that's a separate, judgment-heavier
   review.
-- Scratch comments with a working-note prefix (marked with `:`) — those are
-  meant to be stripped at final commit by whoever wrote them, not by this pass.
+- `CLAUDENOTE:`-prefixed scratch comments, if present — those are meant to
+  be stripped at final commit by whoever wrote them, not by this pass.
 
 ## Process
 

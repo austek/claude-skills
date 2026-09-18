@@ -2,8 +2,8 @@
 name: create-pr-oss
 description: >-
   Open a pull request on a personal or open-source GitHub repo: fork/upstream detection, repo's own
-  contribution conventions (CONTRIBUTING.md, PR template, DCO/CLA sign-off), branch naming, and check
-  monitoring. Use for "create/open a PR" or "push & open PR" on a non-Collibra repo.
+  contribution conventions (CONTRIBUTING.md, PR template, DCO/CLA sign-off), a docs-drift check, branch
+  naming, and check monitoring. Use for "create/open a PR" or "push & open PR" on a non-Collibra repo.
 ---
 
 # Opening a PR on a Personal/OSS Repo
@@ -25,7 +25,24 @@ git diff <base>...HEAD -U0 -- . | grep -qE '^\+.*(//|#[^!]|/\*|\*/)'
 ```
 If it does, invoke the `prune-comments` skill scoped to this branch first.
 
-## 3. Fork/Upstream Detection
+## 3. Docs Check
+Docs drift silently — a repo can go a long time with public API changes and zero corresponding
+doc updates (e.g. a whole eval/exec-style API family with no docs-site coverage at all). Before
+writing the PR description, check whether this diff needs one:
+```bash
+# Anything doc-like already touched?
+git diff <base>...HEAD --name-only | grep -qiE '(^|/)(readme|changelog|changes)([^/]*)?$|(^|/)docs?/|\.adoc$|\.rst$' \
+  && echo "docs touched" || echo "no docs touched"
+
+# Any non-test source changed?
+git diff <base>...HEAD --name-only | grep -viE '(^|/)(test|tests|spec|specs)(/|_|\.)' \
+  | grep -E '\.(py|js|ts|go|rb|java|rs|c|cpp|sh)$'
+```
+If source changed with no doc file touched, don't guess whether it needs docs — surface the
+specific files/functions that changed and ask the user whether this needs a doc update before
+opening. Never block on this alone; a bug fix or internal refactor often genuinely needs none.
+
+## 4. Fork/Upstream Detection
 Most OSS contributions need a fork — you rarely have direct push access:
 ```bash
 gh repo view <owner>/<repo> --json viewerPermission -q .viewerPermission
@@ -35,7 +52,7 @@ gh repo view <owner>/<repo> --json viewerPermission -q .viewerPermission
   `<you>/<repo>`, then `gh pr create --repo <owner>/<repo> --head <you>:<branch>`.
 - Check for an existing fork before creating a new one: `gh repo view <you>/<repo>` (404 = no fork yet).
 
-## 4. Repo Convention Detection
+## 5. Repo Convention Detection
 Run before writing anything:
 ```bash
 # Commit/branch convention from recent history
@@ -53,14 +70,14 @@ gh api repos/<owner>/<repo>/contents/.github/workflows --jq '.[].name' 2>/dev/nu
 If `CONTRIBUTING.md` requires sign-off, commit with `git commit -s` (adds `Signed-off-by:`) — check
 before the first commit, not after CI flags it.
 
-## 5. Mechanics That Bite
+## 6. Mechanics That Bite
 - **Force Push**: Use `--force-with-lease=<ref>:<sha>` even on your own fork branch.
 - **Existing PRs**: Check `gh pr list --repo <owner>/<repo> --head "<you>:<branch>"` before creating.
 - **Upstream drift**: Rebase onto current upstream default branch before opening — OSS maintainers expect
   a clean rebase, not a merge commit, unless the repo says otherwise.
 - **Zsh & Shell**: Quote glob args (`--include="*.yaml"`). Use plain `grep -rn` and `find`.
 
-## 6. Check Monitoring
+## 7. Check Monitoring
 Same polling pattern as internal repos — run under bash, not zsh:
 ```bash
 bash -s <<'EOF'
@@ -78,8 +95,9 @@ EOF
 ```
 OSS CI often includes a CLA/DCO check bucket — treat it like any other required check, don't skip it.
 
-## 7. Pre-Completion Checklist
+## 8. Pre-Completion Checklist
 - [ ] Comment pass run if the diff touched comments (§2).
+- [ ] Docs check run; flagged to the user if source changed with no doc file touched (§3).
 - [ ] PR targets the correct upstream repo/branch, not your fork's default branch.
 - [ ] Sign-off applied if `CONTRIBUTING.md` requires it.
 - [ ] Description follows the repo's own template, not a Collibra default.

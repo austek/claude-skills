@@ -3,8 +3,8 @@ name: land-pr-oss
 description: >-
   Shepherd your own open PR on a personal/OSS repo to mergeable: poll CI, pull failing-check logs,
   fetch reviewer feedback (inline threads + review verdicts), draft fixes, push after confirmation,
-  reply to and resolve the threads that fix actually addresses. Use for "check my PR", "is my PR green",
-  "address the review comments", or "land this PR".
+  reply to and resolve the threads that fix actually addresses, re-checking for docs drift each
+  loop. Use for "check my PR", "is my PR green", "address the review comments", or "land this PR".
 ---
 
 # Landing Your Own PR on a Personal/OSS Repo
@@ -20,7 +20,7 @@ gh pr view --json number,url,headRefName,baseRefName,headRepositoryOwner,isCross
 Work in the actual checkout (not a worktree) — fixes get committed and pushed from here.
 
 ## 2. CI Status
-Poll checks (same pattern as `create-pr-oss` §6):
+Poll checks (same pattern as `create-pr-oss` §7):
 ```bash
 bash -s <<'EOF'
 prev=""
@@ -71,7 +71,7 @@ for the user to send, don't invent a resolution to make the thread count go down
 
 ## 5. Push & Reply
 After approval:
-1. Commit with sign-off if the repo requires it (per `create-pr-oss` §4 detection), push to the PR branch.
+1. Commit with sign-off if the repo requires it (per `create-pr-oss` §5 detection), push to the PR branch.
 2. Reply on each addressed thread (references the fixing commit):
    ```bash
    gh api repos/<owner>/<repo>/pulls/<number>/comments/<comment_id>/replies -f body="Fixed in <sha>."
@@ -79,20 +79,35 @@ After approval:
 3. Reply to a `CHANGES_REQUESTED` review body via `gh pr comment <number> --body "..."` if it has no
    inline anchor.
 
-## 6. Resolve Threads
+## 6. Docs Check
+A fix drafted in §4 can introduce or change public-facing behavior that wasn't there when the PR
+was opened — re-run `create-pr-oss` §3's check against the full PR diff, not just the latest
+commit:
+```bash
+git diff <base>...HEAD --name-only | grep -qiE '(^|/)(readme|changelog|changes)([^/]*)?$|(^|/)docs?/|\.adoc$|\.rst$' \
+  && echo "docs touched" || echo "no docs touched"
+git diff <base>...HEAD --name-only | grep -viE '(^|/)(test|tests|spec|specs)(/|_|\.)' \
+  | grep -E '\.(py|js|ts|go|rb|java|rs|c|cpp|sh)$'
+```
+Same rule as before: source changed, no doc file touched → surface it and ask, never block on it
+alone.
+
+## 7. Resolve Threads
 Resolve only threads whose comment was actually addressed by the pushed commit — never resolve a
 thread to clear the count:
 ```bash
 gh api graphql -f query='mutation($id:ID!){resolveReviewThread(input:{threadId:$id}){thread{isResolved}}}' -f id=<threadId>
 ```
 
-## 7. Re-Loop
+## 8. Re-Loop
 After pushing, CI re-runs — go back to §2. Stop when: all checks pass, no unresolved actionable threads
 remain, and no drafted reply is still pending send. Report anything still open and why (debatable
 comment, flaky/still-failing check, waiting on a maintainer reply) rather than declaring it landed.
 
-## 8. Pre-Completion Checklist
+## 9. Pre-Completion Checklist
 - [ ] Every failing check root-caused (log pulled), not just retried blind.
+- [ ] Docs check re-run against the full PR diff; flagged to the user if source changed with no
+      doc file touched (§6).
 - [ ] Every resolved thread was actually addressed by a pushed commit, not just marked resolved.
 - [ ] Debatable/ambiguous comments left open with a drafted reply, not silently resolved.
 - [ ] User approved every push before it happened.

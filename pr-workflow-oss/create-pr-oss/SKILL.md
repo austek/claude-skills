@@ -16,6 +16,9 @@ authoritative. Never impose Collibra's `<JIRA-KEY>: subject` or PR template on a
   baseline, not a hard cap.
 - Word caps and section structure come from the repo's own `.github/pull_request_template.md` /
   `CONTRIBUTING.md` if present. Follow those over any personal default.
+- **Issue links**: GitHub only links an issue when a closing keyword sits directly before it, so give
+  every issue its own keyword: `Closes #1, closes #2, closes owner/repo#3`. A comma list such as
+  `Closes #1, #2` closes only #1. Use `Refs #N` when the PR must not close the issue.
 - **Safety**: Never commit, push, fork, open, or merge a PR without explicit user instruction.
 
 ## 2. Comment Pass
@@ -101,3 +104,4 @@ OSS CI often includes a CLA/DCO check bucket — treat it like any other require
 - [ ] PR targets the correct upstream repo/branch, not your fork's default branch.
 - [ ] Sign-off applied if `CONTRIBUTING.md` requires it.
 - [ ] Description follows the repo's own template, not a Collibra default.
+- [ ] Every issue the PR should close has its own closing keyword in the description (§1).

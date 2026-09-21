@@ -110,4 +110,6 @@ comment, flaky/still-failing check, waiting on a maintainer reply) rather than d
       doc file touched (§6).
 - [ ] Every resolved thread was actually addressed by a pushed commit, not just marked resolved.
 - [ ] Debatable/ambiguous comments left open with a drafted reply, not silently resolved.
+- [ ] Every issue the PR should close has its own closing keyword in the description
+      (`Closes #1, closes #2`, never `Closes #1, #2`; cross-repo as `closes owner/repo#3`).
 - [ ] User approved every push before it happened.

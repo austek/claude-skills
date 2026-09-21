@@ -22,6 +22,26 @@ Then enable whichever plugins you want:
 - `dev-utilities` — misc skills: IDE MCP tool selection, comment
   cleanup, code-claim verification, business analysis.
 
+## Update
+
+Refresh the marketplace, then update each installed plugin. Restart Claude Code
+afterwards.
+
+```
+/plugin marketplace update claude-skills
+```
+
+or from a shell:
+
+```
+claude plugin marketplace update claude-skills
+claude plugin update dev-utilities@claude-skills
+```
+
+Claude Code caches each plugin by the `version` in `.claude-plugin/marketplace.json`.
+A skill or command change is not picked up until that plugin's version is
+bumped, so bump it in the same commit as the change.
+
 Some skills in `architecture` and `productivity` are adapted from
 [mattpocock/skills](https://github.com/mattpocock/skills) (MIT) — see
 `THIRD-PARTY-LICENSES.md`.
